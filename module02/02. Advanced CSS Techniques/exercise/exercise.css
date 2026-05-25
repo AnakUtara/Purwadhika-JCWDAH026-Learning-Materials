@@ -1,0 +1,251 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+/* #region Fonts utility classes */
+
+.font-thin {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 100;
+	font-style: normal;
+}
+
+.font-extralight {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.font-light {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.font-regular {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.font-medium {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.font-semibold {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.font-bold {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.font-extrabold {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 800;
+	font-style: normal;
+}
+
+.font-black {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 900;
+	font-style: normal;
+}
+
+.font-thin-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 100;
+	font-style: italic;
+}
+
+.font-extralight-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 200;
+	font-style: italic;
+}
+
+.font-light-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.font-regular-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.font-medium-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.font-semibold-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.font-bold-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+.font-extrabold-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 800;
+	font-style: italic;
+}
+
+.font-black-italic {
+	font-family: "Barlow Semi Condensed", sans-serif;
+	font-weight: 900;
+	font-style: italic;
+}
+
+/* #endregion Fonts utility classes */
+
+body {
+	padding: 16px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: auto;
+	min-height: 100vh;
+	background-color: rgba(236, 242, 248, 1);
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	width: 1110px;
+}
+
+.card {
+	border-radius: 8px;
+	padding: 24px 32px;
+	background-color: white;
+	box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.22);
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	position: relative;
+}
+
+.card:nth-child(1)::after {
+	content: url("./assets/svg/quote-decoration.svg");
+	position: absolute;
+	width: 104px;
+	height: 102px;
+	right: 80px;
+	top: 0;
+	fill: #a775f1;
+}
+
+.card-header {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	z-index: 1;
+}
+
+.card-header-texts h3 {
+	font-size: 13px;
+}
+
+.card-header-texts p {
+	font-size: 11px;
+	opacity: 50%;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	z-index: 1;
+}
+
+.card-body h2 {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+.card-body p {
+	opacity: 70%;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.circle-avatar {
+	width: 28px;
+	height: 28px;
+	border-radius: 100%;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	object-fit: cover;
+}
+
+.grid-colspan-2 {
+	grid-column: span 2;
+}
+
+.grid-rowspan-2 {
+	grid-column: 4 / span 1;
+	grid-row: 1 / span 2;
+}
+
+.bg-purple {
+	background: rgba(115, 63, 200, 1);
+	color: white;
+}
+
+.bg-zinc {
+	background: rgba(72, 85, 106, 1);
+	color: white;
+}
+
+.bg-darknavy {
+	background: rgba(25, 32, 45, 1);
+	color: white;
+}
+
+@media screen and (max-width: 1024px) {
+	body {
+		padding: 32px 16px;
+	}
+
+	.grid-container {
+		grid-template-columns: 1fr;
+		width: 327px;
+	}
+
+	.grid-colspan-2 {
+		grid-column: span 1;
+	}
+
+	.grid-rowspan-2 {
+		grid-column: auto;
+		grid-row: span 1;
+	}
+	.card:nth-child(1) > .card-body {
+		display: flex;
+		flex-direction: column;
+		gap: 36px;
+	}
+	.card:nth-child(1)::after {
+		right: 20px;
+	}
+}

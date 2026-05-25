@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CSS Position Examples</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="stylesheet" href="./styles/poppins.css" />
+	</head>
+	<body class="poppins-regular">
+		<nav class="navbar">
+			<a href="position-examples.html">Position Examples</a>
+			<a href="grid-flex-examples.html">Grid & Flex Examples</a>
+			<a href="css-animation-examples.html">CSS Animation Examples</a>
+		</nav>
+
+		<h1>CSS Position Property Examples</h1>
+
+		<div class="example">
+			<h2>position: static (default)</h2>
+			<div class="static-box">This box is static (default position).</div>
+		</div>
+
+		<div class="example">
+			<h2>position: relative</h2>
+			<div class="relative-box">
+				This box is relative (moved 30px right, 10px down).
+			</div>
+		</div>
+
+		<div class="example">
+			<h2>position: absolute (inside relative container)</h2>
+			<p>
+				<strong>Explanation:</strong> When an element is
+				<code>position: absolute</code> inside a
+				<code>position: relative</code> container, it is positioned relative to
+				that container.
+			</p>
+			<div class="absolute-container">
+				<div class="absolute-box">
+					This box is absolute (top: 10px, left: 10px inside relative
+					container).
+				</div>
+			</div>
+		</div>
+
+		<div class="example">
+			<h2>position: absolute (no relative parent)</h2>
+			<p>
+				<strong>Explanation:</strong> When an element is
+				<code>position: absolute</code> and there is
+				<strong>no relative parent</strong>, it is positioned relative to the
+				<code>&lt;body&gt;</code> (the page itself).
+			</p>
+			<div class="absolute-no-parent">
+				This box is absolute with no relative parent (top: 40px, right: 400px on
+				the page).
+			</div>
+		</div>
+
+		<div class="fixed-box">
+			<h2 style="margin: 0 0 12px">position: fixed</h2>
+			This box is fixed (top: 10px, right: 10px on screen).
+		</div>
+
+		<div class="example">
+			<h2>position: sticky</h2>
+			<p>
+				<strong>Explanation:</strong> The sticky box will "stick" to the top of
+				its scrollable container when you scroll down.
+			</p>
+			<div class="sticky-container">
+				<div
+					style="
+						height: 120px;
+						background: #f3f4f6;
+						color: #888;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					"
+				>
+					Scroll down to see sticky effect
+				</div>
+				<div class="sticky-box">
+					This box is sticky (sticks to top when scrolling).
+				</div>
+				<div
+					style="
+						height: 300px;
+						background: #f3f4f6;
+						color: #888;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					"
+				>
+					Keep scrolling...
+				</div>
+				<div
+					style="
+						height: 200px;
+						background: #f3f4f6;
+						color: #888;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					"
+				>
+					More content below
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

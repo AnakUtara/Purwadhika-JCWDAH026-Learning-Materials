@@ -1,0 +1,125 @@
+/* menghilangkan margin dan padding default pada semua elemen */
+/* simbol * berarti semua elemen/universal selector */
+/* teknik ini biasa dipakai untuk melakukan reset CSS */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f2ebe2;
+	padding: 24px 0;
+}
+
+p {
+	line-height: 23px;
+}
+
+#mobile-container {
+	margin: auto;
+}
+
+.sub-header {
+	color: rgba(108, 114, 137, 1);
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: normal;
+}
+
+.text-xs {
+	font-size: 12px;
+}
+
+.text-sm {
+	font-size: 14px;
+}
+
+.text-lg {
+	font-size: 32px;
+}
+
+.mb-lg {
+	margin-bottom: 16px;
+}
+
+.text-aquamarine {
+	color: #3d8168;
+}
+
+.text-muted {
+	color: rgba(108, 114, 137, 1);
+}
+
+.header {
+	font-family: "Fraunces", serif;
+	line-height: 32px;
+}
+
+.discount-sup {
+	margin-left: 12px;
+	font-weight: 400;
+	font-size: 13px;
+	text-decoration: line-through;
+}
+
+.card {
+	width: 343px;
+	border: 0.5px solid rgb(205, 205, 205);
+	border-radius: 10px;
+	overflow: hidden;
+	/* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) | menambahkan bayangan pada elemen untuk memberikan efek kedalaman */
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+	padding: 32px 24px;
+	background-color: white;
+}
+
+.card-image {
+	width: 100%;
+	height: 240px;
+	/* overflow: hidden | memastikan konten yang melampaui ukuran container disembunyikan */
+	overflow: hidden;
+}
+
+.object-cover {
+	/* object-fit: cover | membuat gambar menutupi seluruh area container tanpa merubah aspect ratio */
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.btn-full {
+	width: 100%;
+	padding: 12px 0;
+	background-color: #3d8168;
+	border: none;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 10px;
+	/* cursor pointer ini buat bikin cursor berubah jadi tangan saat hover */
+	cursor: pointer;
+	/* 
+        Untuk flex ini, coba ikutin dari sini dulu aja
+        misal belum tau itu apa. 
+        Gw ga ketemu cara lain buat bikin sesuai figma.
+        Tapi ini bakal bahas di Advanced CSS nanti.
+    */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+.btn-full:hover {
+	background-color: #82b3a6;
+}

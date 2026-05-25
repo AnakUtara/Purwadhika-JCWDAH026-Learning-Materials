@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Grid & Flex Examples</title>
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/grid-flex.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="inter-regular">
+		<nav class="navbar">
+			<a href="position-examples.html">Position Examples</a>
+			<a href="grid-flex-examples.html">Grid & Flex Examples</a>
+			<a href="css-animation-examples.html">CSS Animation Examples</a>
+		</nav>
+		<h1>Grid & Flex Responsive Examples</h1>
+
+		<section>
+			<h2>Grid Example: grid-template-columns & gap</h2>
+			<div class="grid-demo">
+				<div class="card">1</div>
+				<div class="card">2</div>
+				<div class="card">3</div>
+				<div class="card">4</div>
+				<div class="card">5</div>
+				<div class="card">6</div>
+				<div class="card">7</div>
+				<div class="card">8</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Grid Example: grid-template-rows & grid-auto-rows</h2>
+			<div class="grid-rows-demo">
+				<div class="card">A</div>
+				<div class="card">B</div>
+				<div class="card">C</div>
+				<div class="card">D</div>
+				<div class="card">E</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Grid Example: grid-column & grid-row</h2>
+			<div class="grid-area-demo">
+				<div class="card area1">1 (col 1-3)</div>
+				<div class="card area2">2 (row 2-4)</div>
+				<div class="card">3</div>
+				<div class="card">4</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Grid Example: justify-items & place-items</h2>
+			<div class="grid-align-demo">
+				<div class="card">Start</div>
+				<div class="card">Center</div>
+				<div class="card">End</div>
+				<div class="card">Stretch</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Flexbox Example</h2>
+			<div class="flex-demo">
+				<div class="card">Flex 1</div>
+				<div class="card">Flex 2</div>
+				<div class="card">Flex 3</div>
+				<div class="card">Flex 4</div>
+				<div class="card">Flex 5</div>
+				<div class="card">Flex 6</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Flexbox: Main Axis & Cross Axis</h2>
+			<p>
+				<strong>Main axis</strong> is the direction flex items are placed (row
+				by default, left to right). <strong>Cross axis</strong> is perpendicular
+				to the main axis (top to bottom by default). If
+				<code>flex-direction</code> is <code>row</code>, main axis is
+				horizontal; if <code>column</code>, main axis is vertical.
+			</p>
+		</section>
+
+		<section>
+			<h2>Flexbox Example: flex-direction</h2>
+			<p><code>flex-direction: row</code> (default):</p>
+			<div class="flex-demo flex-row">
+				<div class="card">1</div>
+				<div class="card">2</div>
+				<div class="card">3</div>
+			</div>
+			<p><code>flex-direction: column</code>:</p>
+			<div class="flex-demo flex-column">
+				<div class="card">A</div>
+				<div class="card">B</div>
+				<div class="card">C</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Flexbox Example: flex-wrap</h2>
+			<p><code>flex-wrap: nowrap</code> (default, items stay on one line):</p>
+			<div class="flex-demo flex-nowrap">
+				<div class="card">1</div>
+				<div class="card">2</div>
+				<div class="card">3</div>
+				<div class="card">4</div>
+				<div class="card">5</div>
+			</div>
+			<p><code>flex-wrap: wrap</code> (items wrap to next line if needed):</p>
+			<div class="flex-demo flex-wrap">
+				<div class="card">A</div>
+				<div class="card">B</div>
+				<div class="card">C</div>
+				<div class="card">D</div>
+				<div class="card">E</div>
+			</div>
+		</section>
+	</body>
+</html>
