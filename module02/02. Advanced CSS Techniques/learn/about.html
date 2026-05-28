@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				margin: 0;
+			}
+
+			#navbar {
+				background-color: #33333383;
+				padding: 16px;
+				color: white;
+				display: flex;
+				gap: 16px;
+				justify-content: center;
+				position: sticky;
+				top: 0;
+				z-index: 1000;
+				backdrop-filter: blur(10px);
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+
+			#navbar a {
+				color: white;
+				text-decoration: none;
+				font-weight: bold;
+				transition: color 0.3s ease;
+			}
+
+			#navbar a:hover {
+				color: #007bff;
+			}
+
+			#main-content {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			#main-content > div {
+				max-width: 600px;
+				padding: 24px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				border-radius: 8px;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<main id="main-content">
+			<div>
+				<h1>About Page</h1>
+				<p>This is the about page of our website.</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
+					lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam
+					viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+				</p>
+			</div>
+		</main>
+	</body>
+</html>

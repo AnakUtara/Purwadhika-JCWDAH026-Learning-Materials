@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Advanced CSS In Practice</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				margin: 0;
+			}
+
+			#navbar {
+				background-color: #33333383;
+				padding: 16px;
+				color: white;
+				display: flex;
+				gap: 16px;
+				justify-content: center;
+				position: sticky;
+				top: 0;
+				z-index: 1000;
+				backdrop-filter: blur(10px);
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+
+			#navbar a {
+				color: white;
+				text-decoration: none;
+				font-weight: bold;
+				transition: color 0.3s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+			}
+
+			#navbar a:hover {
+				color: #007bff;
+			}
+
+			#main-content {
+				margin: 0 auto;
+				max-width: 1200px;
+				padding: 24px 0;
+			}
+
+			.grid-container {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-auto-rows: 400px;
+				gap: 16px;
+			}
+
+			.flex-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+
+			.tag {
+				background-color: #007bff;
+				color: white;
+				padding: 4px 8px;
+				border-radius: 4px;
+				font-size: 12px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 50px;
+			}
+
+			.center-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.relative {
+				position: relative;
+			}
+
+			.absolute {
+				position: absolute;
+			}
+
+			.badge {
+				border-radius: 50%;
+				width: 32px;
+				height: 32px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 8px;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			.bg-green {
+				background-color: #28a745;
+				color: white;
+			}
+
+			.top-right {
+				top: -8px;
+				right: -8px;
+			}
+
+			.card {
+				background-color: #ffffff;
+				padding: 16px;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+			}
+
+			.card p {
+				overflow-y: auto;
+			}
+
+			.card > h2 {
+				text-transform: capitalize;
+			}
+
+			.card:nth-child(even) {
+				background-color: #c0ffd3;
+			}
+
+			@media screen and (max-width: 1024px) {
+				#main-content {
+					padding: 16px;
+				}
+
+				.grid-container {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			@media screen and (max-width: 768px) {
+				#main-content {
+					padding: 16px;
+				}
+
+				.grid-container {
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+
+			@media screen and (max-width: 576px) {
+				#main-content {
+					padding: 16px;
+				}
+
+				.grid-container {
+					grid-template-columns: repeat(1, 1fr);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav id="navbar">
+			<a href="posts.html">Posts</a>
+			<a href="about.html">About</a>
+		</nav>
+		<main id="main-content"></main>
+		<script>
+			let isLoading = true;
+			const mainContent = document.querySelector("#main-content");
+
+			const fetchPosts = async () => {
+				isLoading = true;
+				try {
+					const res = await fetch("https://dummyjson.com/posts");
+					const { posts } = await res.json();
+
+					if (!res.ok) {
+						throw new Error("Failed to fetch data");
+					}
+
+					mainContent.innerHTML = "";
+
+					mainContent.classList.remove("center-container");
+					mainContent.classList.add("grid-container");
+
+					posts.forEach((post) => {
+						const postElement = document.createElement("section");
+						postElement.classList.add("card");
+						postElement.classList.add("relative");
+						postElement.innerHTML = `
+									<div class="absolute top-right badge bg-green">
+										${post.views}
+									</div>
+			                        <h2>${post.title}</h2>
+									<div class="flex-container">
+									${post.tags
+										?.map(
+											(tag) => `
+													<div class="tag">${tag}</div>
+													`,
+										)
+										.join("")}
+									</div>
+			                        <p>${post.body}</p>
+			                    `;
+						mainContent.appendChild(postElement);
+					});
+				} catch (error) {
+					mainContent.classList.remove("grid-container");
+					mainContent.classList.add("center-container");
+
+					mainContent.innerHTML = `<p>Error: ${error.message}. Please try again later.</p>`;
+				} finally {
+					isLoading = false;
+				}
+			};
+
+			fetchPosts();
+
+			if (isLoading) {
+				const loadingElement = document.createElement("p");
+				loadingElement.textContent = "Loading...";
+				mainContent.classList.add("center-container");
+				mainContent.appendChild(loadingElement);
+			}
+		</script>
+	</body>
+</html>
