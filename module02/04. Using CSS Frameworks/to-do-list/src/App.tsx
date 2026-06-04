@@ -1,4 +1,4 @@
-import ToDoListCard from "./components/cards/ToDoListCard"
+import ListCard from "./components/cards/ListCard"
 import Header from "./components/header/Header"
 
 export function App() {
@@ -6,7 +6,7 @@ export function App() {
     <main>
       <Header />
       <div className="relative -top-12 z-30 container mx-auto max-w-135.25">
-        <ToDoListCard />
+        <ListCard />
       </div>
     </main>
   )

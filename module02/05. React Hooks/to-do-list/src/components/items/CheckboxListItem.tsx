@@ -5,7 +5,7 @@ import { Item, ItemActions, ItemTitle } from "../ui/item"
 type Props = {
   item: IToDoItem
 }
-const ToDoItem = ({ item }: Props) => {
+const CheckboxListItem = ({ item }: Props) => {
   return (
     <Item className="border-b-gray-200 py-5 last:border-0">
       <ItemActions>
@@ -15,4 +15,4 @@ const ToDoItem = ({ item }: Props) => {
     </Item>
   )
 }
-export default ToDoItem
+export default CheckboxListItem

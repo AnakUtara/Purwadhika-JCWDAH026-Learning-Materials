@@ -1,16 +1,16 @@
 import { Card, CardContent, CardFooter } from "../ui/card"
 import { ScrollArea } from "../ui/scroll-area"
 import ToDoListData from "../../data/to-do-list.data"
-import ToDoItem from "../items/ToDoItem"
+import ListItem from "../items/ListItem"
 import { Button } from "../ui/button"
 
-const ToDoListCard = () => {
+const ListCard = () => {
   return (
     <Card className="gap-0 p-0">
       <CardContent className="p-0">
         <ScrollArea className="h-80">
           {ToDoListData.map((item) => (
-            <ToDoItem key={item.id} item={item} />
+            <ListItem key={item.id} item={item} />
           ))}
         </ScrollArea>
       </CardContent>
@@ -34,4 +34,4 @@ const ToDoListCard = () => {
     </Card>
   )
 }
-export default ToDoListCard
+export default ListCard
