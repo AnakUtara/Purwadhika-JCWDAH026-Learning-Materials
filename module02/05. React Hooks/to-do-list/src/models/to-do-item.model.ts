@@ -5,3 +5,5 @@ export default interface IToDoItem {
 }
 
 export type TTodoList = IToDoItem[]
+
+export type TToDoFilter = "All" | "Active" | "Completed"

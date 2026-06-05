@@ -12,9 +12,9 @@ const GradientCheckbox = ({ checked, onCheckedChange }: Props) => {
       checked={checked}
       onCheckedChange={onCheckedChange}
       className={cn(
-        "size-7 rounded-full",
+        "size-5 rounded-full md:size-7",
         "data-[state=checked]:border-0 data-[state=checked]:bg-linear-to-br data-[state=checked]:from-[#5596FF] data-[state=checked]:to-[#C058F3]",
-        "[&_svg]:h-4 [&_svg]:w-4 [&_svg]:stroke-[4.5px]"
+        "[&_svg]:size-1.5 [&_svg]:stroke-[4.5px] md:[&_svg]:size-4"
       )}
     />
   )
