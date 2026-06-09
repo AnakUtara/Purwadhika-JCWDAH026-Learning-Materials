@@ -9,6 +9,15 @@ import {
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
+// Step mendefinisikan context:
+// 1. Buat interface untuk mendefinisikan tipe data yang akan disimpan di context
+// 2. Buat context dengan createContext dan berikan tipe data interface yang sudah dibuat
+// 3. Buat provider component yang akan membungkus komponen lain dan menyediakan nilai context
+// 4. State yang digunakan sebagai global state adalah useState yang didefinisikan di dalam provider component
+// 5. Buat fungsi untuk mengubah state global (misalnya signUp, signIn, signOut) di dalam provider component
+// 7. Karena Provider adalah component, maka kita bisa menggunakan useEffect untuk melakukan side effect seperti mengecek status autentikasi saat komponen pertama kali di-render
+// 8. Buat custom hook (useAuth) untuk memudahkan akses ke context di komponen lain
+
 interface IAuthContext {
 	user: IUser | null;
 	signUp: (email: string, password: string) => void;
@@ -92,6 +101,7 @@ const AuthProvider = ({ children }: Props) => {
 	}, []);
 
 	return (
+		// Setiap state dan fungsi yang ingin diakses secara global harus disimpan di dalam value dari Providers
 		<AuthContext.Provider
 			value={{
 				user,
@@ -108,6 +118,12 @@ const AuthProvider = ({ children }: Props) => {
 export default AuthProvider;
 
 const useAuth = () => {
+	// Jangan lupa untuk memakai useContext untuk mengakses context hasil createContext sebelum di return
+	// Custom hook ini akan menjadi sumber kebenaran untuk akses context di seluruh komponen yang ada di dalam aplikasi
+	// Dengan custom hook ini kita tidak perlu lagi memanggil useContext & export context hasil createContext
+	// dan import context-nya di setiap komponen yang membutuhkan akses ke context
+	// Cukup panggil saja nama custom hook ini (useAuth) di komponen manapun yang membutuhkan akses ke context,
+	// maka kita sudah bisa mendapatkan nilai context yang diinginkan
 	const context = useContext(AuthContext);
 	if (!context) {
 		throw new Error("useAuth must be used within an AuthProvider");
