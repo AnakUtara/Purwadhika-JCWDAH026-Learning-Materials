@@ -30,10 +30,17 @@ app.get("/", (_req: Request, res: Response) => {
 	res.send({ message: "Welcome to the To-Do List API!" });
 });
 
-app.get("/todos", (_req: Request, res: Response) => {
+app.get("/todos", (req: Request, res: Response) => {
+	const { search } = req.query;
+	let filteredTodos = todos;
+	if (search) {
+		filteredTodos = todos.filter((todo: TTodoItem) =>
+			todo.title.toLowerCase().includes(search.toString().toLowerCase()),
+		);
+	}
 	res.send({
 		message: "Sukses mengambil semua to-do items",
-		data: todos,
+		data: filteredTodos,
 	});
 });
 
@@ -73,13 +80,13 @@ app.post("/todos", (req: Request, res: Response) => {
 	});
 });
 
-app.put("/todos/:todoId", (req: Request, res: Response) => {
-	const { todoId } = req.params;
-	const existingTodo = findTodoById(Number(todoId));
+app.put("/todos/:id", (req: Request, res: Response) => {
+	const { id } = req.params;
+	const existingTodo = findTodoById(Number(id));
 
 	if (!existingTodo) {
 		res.status(404).send({
-			message: `To-do item dengan id ${todoId} tidak ditemukan`,
+			message: `To-do item dengan id ${id} tidak ditemukan`,
 		});
 	} else {
 		const updatedTodo = { ...existingTodo, ...req.body };
@@ -88,7 +95,7 @@ app.put("/todos/:todoId", (req: Request, res: Response) => {
 			todosFilePath,
 			JSON.stringify(
 				todos.map((todo: TTodoItem) =>
-					todo.id === Number(todoId) ? updatedTodo : todo,
+					todo.id === Number(id) ? updatedTodo : todo,
 				),
 			),
 			(err) => {
@@ -102,7 +109,7 @@ app.put("/todos/:todoId", (req: Request, res: Response) => {
 		);
 
 		res.send({
-			message: `Berhasil mengubah to-do item dengan id ${todoId}`,
+			message: `Berhasil mengubah to-do item dengan id ${id}`,
 			data: updatedTodo,
 		});
 	}
