@@ -1,0 +1,34 @@
+{
+	"name": "orm-integrated-blog-api",
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "tsx watch app.ts",
+		"build": "npx tsc",
+		"start": "node dist/app.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"db:init": "npx prisma init",
+		"db:studio": "npx prisma studio",
+		"gen:dev": "npx prisma generate",
+		"mig:dev": "npx prisma migrate dev",
+		"mig:prod": "npx prisma migrate deploy"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"type": "module",
+	"dependencies": {
+		"@prisma/adapter-neon": "^7.8.0",
+		"@prisma/client": "^7.8.0",
+		"dotenv": "^17.4.2",
+		"express": "^5.2.1",
+		"yup": "^1.7.1"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.6",
+		"@types/node": "^25.9.3",
+		"tsx": "^4.21.0",
+		"prisma": "^7.8.0",
+		"typescript": "^5.9.3"
+	}
+}
