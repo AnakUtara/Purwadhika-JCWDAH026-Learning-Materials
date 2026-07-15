@@ -1,0 +1,38 @@
+enum UserRole {
+    USER
+    ADMIN
+}
+
+model User {
+    id       Int      @id @default(autoincrement())
+    email    String   @unique
+    password String?
+    role     UserRole @default(USER)
+
+    fullName  String? @map("full_name")
+    avatarUrl String? @map("avatar_url")
+
+    id_number    String? @map("id_number")
+    phone_number String? @map("phone_number")
+    address      String?
+
+    deletedAt DateTime? @map("deleted_at")
+    createdAt DateTime  @default(now()) @map("created_at")
+    updatedAt DateTime  @updatedAt @map("updated_at")
+
+    accounts Account[]
+    posts    Post[]
+
+    @@map("users")
+}
+
+model Account {
+    id                Int    @id @default(autoincrement())
+    provider          String // e.g. "google"
+    providerAccountId String @map("provider_account_id")
+    userId            Int    @map("user_id")
+    user              User   @relation(fields: [userId], references: [id])
+
+    @@unique([provider, providerAccountId])
+    @@map("accounts")
+}
