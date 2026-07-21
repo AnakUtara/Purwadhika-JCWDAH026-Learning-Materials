@@ -1,0 +1,20 @@
+import { Router } from "express";
+import AuthController from "../controllers/auth.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
+import RefreshTokenController from "../controllers/refresh-token.controller.js";
+
+export const authRouter = Router();
+
+authRouter.post("/sign-in", AuthController.signIn);
+authRouter.post("/sign-up", AuthController.signUp);
+authRouter.post(
+	"/refresh-token",
+	verifyToken("refresh"),
+	RefreshTokenController.refreshToken,
+);
+
+authRouter.post("/google/callback", AuthController.googleSignIn);
+
+authRouter.use(verifyToken("access"));
+authRouter.post("/sign-out", AuthController.signOut);
+authRouter.get("/me", AuthController.getAuthUser);
